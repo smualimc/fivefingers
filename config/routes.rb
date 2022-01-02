@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'store/index'
   resources :products
   get 'myspace/index'
   devise_for :users
