@@ -1,0 +1,22 @@
+<div class="container">
+		<div class="row">
+			<div class="col">
+
+				<ul class="nav">
+
+					<li><a href="#" class="nav-link">Productos</a></li>
+
+					<li><a href="#" class="nav-link">Categorías</a></li>
+
+					<li><a href="#" class="nav-link disabled" tabindex="-1" aria-disabled="true">Proximamente</a></li>
+
+					<li>
+                        <% if user_signed_in? %>
+                        <%= button_to "Logout", destroy_user_session_path, method: :delete , class: "btn btn-outline-dark" %>
+                        <% end %>
+                    </li>
+
+				</ul>
+            </div>
+        </div>
+</div>
