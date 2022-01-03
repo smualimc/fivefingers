@@ -1,8 +1,28 @@
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
+<div class="container">
 
-<h1>Your Pragmatic Catalog</h1>
+		<div class="row mt-5">
+
+			<div class="col">
+
+				<ul class="nav">
+
+					<li><a href="#" class="nav-link">Inicio</a></li>
+
+					<li><a href="#" class="nav-link">Blog</a></li>
+
+					<li><a href="#" class="nav-link disabled" tabindex="-1" aria-disabled="true">Próximamente</a></li>
+
+					<li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %></li>
+
+				</ul>
+      </div>
+    </div>
+</div>
+
+<h1>Catalogo de Productos</h1>
 
 <ul class="catalog">
   <% @products.each do |product| %>
