@@ -7,7 +7,7 @@
 
 			<div class="col">
 
-				<ul class="nav">
+				<ul class="d-flex align-items-center nav">
 
 					<li><a href="#" class="nav-link">Inicio</a></li>
 
@@ -32,9 +32,12 @@
       <p>
         <%= sanitize(product.description) %>
       </p>
-      <div class="price">
+      <div class="price d-flex align-items-center btn-group">
         <%= number_to_currency(product.price) %>
+        <%= button_to "Agregar al Carro", line_items_path(product_id: product), class: "mx-3 btn btn-lg btn-outline-primary"  %>
+
       </div>
     </li>
+    <br>
   <% end %>
 </ul>
