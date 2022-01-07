@@ -1,6 +1,7 @@
 class Sale < ApplicationRecord
-    belongs_to :cart
     before_create :populate_uuid
+
+    belongs_to :cart
 
     validates :total_price, numericality: { greater_than_or_equal_to: 0.50, message: "Valor no puede ser menor a 50 céntimos" }
 
