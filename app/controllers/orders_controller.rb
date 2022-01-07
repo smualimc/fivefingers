@@ -29,6 +29,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        sale = Sale.create(total_price: @cart.total_price)
+        sale.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to store_index_url, notice: "Gracias por su Pedido" }
