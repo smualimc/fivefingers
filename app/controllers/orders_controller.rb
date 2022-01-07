@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        sale = Sale.create(total_price: @cart.total_price)
+        sale = Sale.create!(seller_email: "fivefingers@example.com", buyer_email: @order.email, total_price: @cart.total_price, order_id: @order.id)
         sale.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil

@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+    has_one :sale 
     has_many :line_items, dependent: :destroy 
     validates :name, :address, :email, presence: true
     enum pay_type: {
