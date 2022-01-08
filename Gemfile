@@ -76,3 +76,5 @@ end
 
 gem 'devise'
 
+gem 'stripe', '~> 5.42'
+
