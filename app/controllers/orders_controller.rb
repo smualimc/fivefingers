@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
+    @order.total_order = @order.line_items.to_a.sum {|item| item.total_price}
 
     respond_to do |format|
       if @order.save
@@ -74,7 +75,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :total_order)
     end
 
     def ensure_cart_isnt_empty
