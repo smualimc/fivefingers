@@ -30,8 +30,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        #sale = Sale.create!(seller_email: "fivefingers@example.com", buyer_email: @order.email, total_price: @cart.total_price, order_id: @order.id)
-        #sale.save
+        sale = Sale.create!(seller_email: "fivefingers@example.com", buyer_email: @order.email, total_price: @order.total_order, order_id: @order.id)
+        sale.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to @order }
